@@ -31,21 +31,22 @@
                       <div class="transition-transform duration-500 h-full flex mix-blend-multiply">
                         <div class="w-full h-full relative flex-shrink-0">
                           <!-- Updated image section with fullscreen button -->
-                          <div class="relative">
-                            <img id="screen" class="mix-blend-multiply" src="https://usetrmnl.com/images/setup/setup-logo.bmp">
-                            <button 
-                              id="fullscreen-btn" 
-                              onclick="toggleFullscreen()"
-                              class="absolute top-4 right-4 p-2 bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full text-white transition-all duration-200 ease-in-out">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <polyline points="9 21 3 21 3 15"></polyline>
-                                <line x1="21" y1="3" x2="14" y2="10"></line>
-                                <line x1="3" y1="21" x2="10" y2="14"></line>
-                              </svg>
-                            </button>
-                          </div>
-                        </div>
+                         <div class="w-full h-full relative flex-shrink-0">
+												  <div class="relative" style="z-index: 10;">
+ 												   <img id="screen" class="mix-blend-multiply" src="https://usetrmnl.com/images/setup/setup-logo.bmp">
+    												<button 
+      												id="fullscreen-btn" 
+      												onclick="toggleFullscreen()"
+      												class="absolute top-4 right-4 p-2 bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full text-white transition-all duration-200 ease-in-out z-20">
+     														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        														<polyline points="15 3 21 3 21 9"></polyline>
+       															<polyline points="9 21 3 21 3 15"></polyline>
+        														<line x1="21" y1="3" x2="14" y2="10"></line>
+        														<line x1="3" y1="21" x2="10" y2="14"></line>
+     														</svg>
+    													</button>
+													  </div>
+													</div>
                       </div>
                     </div>
                   </div>
