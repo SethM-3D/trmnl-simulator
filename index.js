@@ -1,13 +1,15 @@
 var timeoutId = 0;
 var frequencyInMs = 15 * 60 * 1000; // 15 mins
-
 async function toggleFullscreen() {
-    const container = document.querySelector('.fullscreen-container');
+    const container = document.getElementById('fullscreen-container');
     const button = document.getElementById('fullscreen-btn');
     
     if (!document.fullscreenElement) {
         try {
+            // Add a class before going fullscreen
+            container.classList.add('fullscreen-mode');
             await container.requestFullscreen();
+            // Update icon to show minimize
             button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="4 14 10 14 10 20"></polyline>
                 <polyline points="20 10 14 10 14 4"></polyline>
@@ -19,7 +21,11 @@ async function toggleFullscreen() {
         }
     } else {
         try {
+            // Exit fullscreen
             await document.exitFullscreen();
+            // Remove the class after exiting fullscreen
+            container.classList.remove('fullscreen-mode');
+            // Update icon to show maximize
             button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="15 3 21 3 21 9"></polyline>
                 <polyline points="9 21 3 21 3 15"></polyline>
@@ -31,6 +37,15 @@ async function toggleFullscreen() {
         }
     }
 }
+
+// Add a fullscreen change event listener to handle escape key
+document.addEventListener('fullscreenchange', () => {
+    const container = document.getElementById('fullscreen-container');
+    if (!document.fullscreenElement) {
+        container.classList.remove('fullscreen-mode');
+    }
+});
+ 
             // Reset the container styles
             container.style.backgroundColor = '';
             container.style.display = '';
