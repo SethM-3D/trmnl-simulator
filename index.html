@@ -4,8 +4,6 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <!-- <link rel="stylesheet" href="./trmnl_integrations_files/tailwind.css"> -->
-  <!-- <link rel="stylesheet" href="./trmnl_integrations_files/application.tailwind.css"> -->
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   <title>TRMNL | Integrations</title>
 </head>
@@ -32,7 +30,21 @@
                     <div class="h-full overflow-hidden">
                       <div class="transition-transform duration-500 h-full flex mix-blend-multiply">
                         <div class="w-full h-full relative flex-shrink-0">
-                          <img id="screen" class="mix-blend-multiply" src="https://usetrmnl.com/images/setup/setup-logo.bmp">
+                          <!-- Updated image section with fullscreen button -->
+                          <div class="relative">
+                            <img id="screen" class="mix-blend-multiply" src="https://usetrmnl.com/images/setup/setup-logo.bmp">
+                            <button 
+                              id="fullscreen-btn" 
+                              onclick="toggleFullscreen()"
+                              class="absolute top-4 right-4 p-2 bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full text-white transition-all duration-200 ease-in-out">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                              </svg>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -53,32 +65,27 @@
                   If API Key is not specified, Device ID will passed to the <code>/api/setup</code> endpoint to retrieve it.
                 </p>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-
                   <div class="sm:col-span-2 text-left">
                     <label for="server" class="block text-sm/6 font-medium text-gray-100">Server</label>
                     <div class="mt-2">
                       <input type="url" placeholder="https://trmnl.app" value="https://trmnl.app" name="server" id="server" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6">
                     </div>
                   </div>
-
                   <div class="sm:col-span-2 text-left">
                     <label for="device-id" class="block text-sm/6 font-medium text-gray-100">Device ID</label>
                     <div class="mt-2">
                       <input type="text" placeholder="AA:BB:CC:DD:EE:FF" name="device-id" id="device-id" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6">
                     </div>
                   </div>
-          
                   <div class="sm:col-span-2 text-left">
                     <label for="api-key" class="block text-sm/6 font-medium text-gray-100">API Key</label>
                     <div class="mt-2">
                       <input type="text" placeholder="your-secret-key" name="api-key" id="api-key" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6">
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
-          
             <div class="mt-6 flex items-center justify-end gap-x-6">
               <button type="button" onclick="stop()" disabled class="rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orangle-600 disabled:bg-orange-400">Stop</button>
               <button type="button" onclick="start()" class="rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orangle-600 disabled:bg-orange-400">Start</button>
@@ -90,5 +97,4 @@
   </section>
   <script src="index.js"></script>
 </body>
-
 </html>
