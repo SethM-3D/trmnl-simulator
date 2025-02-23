@@ -6,6 +6,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   <title>TRMNL | Integrations</title>
+	<style>
+  .fullscreen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fullscreen-container:fullscreen {
+    background: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fullscreen-container:fullscreen img {
+    max-height: 90vh;
+    width: auto;
+    object-fit: contain;
+  }
+</style>
 </head>
 
 <body class="bg-gray-600 text-gray-800">
