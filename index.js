@@ -1,5 +1,6 @@
 var timeoutId = 0;
 var frequencyInMs = 15 * 60 * 1000; // 15 mins
+
 async function toggleFullscreen() {
     const container = document.getElementById('fullscreen-container');
     const button = document.getElementById('fullscreen-btn');
