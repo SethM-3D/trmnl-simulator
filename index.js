@@ -7,10 +7,8 @@ async function toggleFullscreen() {
     
     if (!document.fullscreenElement) {
         try {
-            // Add a class before going fullscreen
             container.classList.add('fullscreen-mode');
             await container.requestFullscreen();
-            // Update icon to show minimize
             button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="4 14 10 14 10 20"></polyline>
                 <polyline points="20 10 14 10 14 4"></polyline>
@@ -22,38 +20,8 @@ async function toggleFullscreen() {
         }
     } else {
         try {
-            // Exit fullscreen
             await document.exitFullscreen();
-            // Remove the class after exiting fullscreen
             container.classList.remove('fullscreen-mode');
-            // Update icon to show maximize
-            button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <polyline points="9 21 3 21 3 15"></polyline>
-                <line x1="21" y1="3" x2="14" y2="10"></line>
-                <line x1="3" y1="21" x2="10" y2="14"></line>
-            </svg>`;
-        } catch (err) {
-            console.error('Error attempting to exit fullscreen:', err);
-        }
-    }
-}
-
-// Add a fullscreen change event listener to handle escape key
-document.addEventListener('fullscreenchange', () => {
-    const container = document.getElementById('fullscreen-container');
-    if (!document.fullscreenElement) {
-        container.classList.remove('fullscreen-mode');
-    }
-});
- 
-            // Reset the container styles
-            container.style.backgroundColor = '';
-            container.style.display = '';
-            container.style.justifyContent = '';
-            container.style.alignItems = '';
-            
-            // Update icon to show maximize
             button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="15 3 21 3 21 9"></polyline>
                 <polyline points="9 21 3 21 3 15"></polyline>
@@ -215,24 +183,4 @@ function start(firstRun = true) {
 }
 
 // Check for query params on page load
-window.onload = function() {
-    var parameters = new URLSearchParams(location.search);
-
-    const serverInput = document.getElementById('server');
-    const deviceIdInput = document.getElementById('device-id');
-    const apiKeyInput = document.getElementById('api-key');
-
-    // Populate Device ID and API Key fields
-    deviceIdInput.value = parameters.get('deviceId') || '';
-    apiKeyInput.value = parameters.get('apiKey') || '';
-
-    // Only set the server if passed so the default value isn't overwritten
-    if (parameters.has('server')) {
-        serverInput.value = parameters.get('server');
-    }
-
-    // If Server and Device ID are specified, start polling the API
-    if (serverInput.value && deviceIdInput.value) {
-        start();
-    }
-}
+window.onload = function() {}
