@@ -18,10 +18,10 @@ The page will automatically begin polling the server when all fields are populat
 
 Just Device ID
 ```
-https://deisterhold.github.io/trmnl-simulator/?deviceId=your-device-id
+https://sethm-3d.github.io/trmnl-simulator/trmnl-simulator/?deviceId=your-device-id
 ```
 
 All Parameters
 ```
-https://deisterhold.github.io/trmnl-simulator/?server=https%3A%2F%2Ftrmnl.app&deviceId=your-device-id&apiKey=your-secret-key
+https://sethm-3d.github.io/trmnl-simulator/?server=https%3A%2F%2Ftrmnl.app&deviceId=your-device-id&apiKey=your-secret-key
 ```
